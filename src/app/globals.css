@@ -1,0 +1,59 @@
+/* Custom ZENTRAA Colors */
+
+@layer base {
+  :root {
+    /* --- LIGHT MODE (Default) --- */
+    
+    /* Background: White (near white) */
+    --background: 0 0% 100%; /* White */
+    --foreground: 220 23% 5%; /* Near Black for text */
+
+    /* Primary Accent (Vibrant Cyan/Teal from Logo: HSL 188 100% 41%) */
+    --primary: 188 100% 41%; 
+    --primary-foreground: 0 0% 100%; /* White text on primary buttons */
+
+    /* Card & Components */
+    --card: 0 0% 98%; 
+    --card-foreground: 220 23% 5%; /* Near Black */
+    
+    /* Muted & Border */
+    --muted: 0 0% 90%; 
+    --muted-foreground: 220 20% 40%;
+    
+    --border: 0 0% 80%; 
+
+    /* Secondary/Outline Button Background */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 220 23% 5%; /* Near Black */
+    
+    --ring: 188 100% 41%;
+  }
+
+  .dark {
+    /* --- DARK MODE (ZENTRAA Theme) --- */
+    
+    /* Background (The exact color #2a3141: HSL 220 23% 22%) */
+    --background: 220 23% 22%; 
+    --foreground: 210 40% 98%; /* Near White text */
+
+    /* Primary Accent (Vibrant Cyan/Teal) */
+    --primary: 188 100% 41%; 
+    --primary-foreground: 210 40% 98%; 
+
+    /* Card & Components (Slightly lighter shade of the new background for depth) */
+    --card: 220 23% 25%; 
+    --card-foreground: 210 40% 98%;
+    
+    /* Muted & Border */
+    --muted: 220 20% 30%; 
+    --muted-foreground: 210 20% 60%;
+    
+    --border: 220 20% 35%; 
+
+    /* Secondary/Outline Button Background */
+    --secondary: 220 23% 35%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --ring: 188 100% 41%;
+  }
+}

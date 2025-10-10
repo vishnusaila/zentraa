@@ -1,0 +1,244 @@
+import { useEffect } from "react"; // Added for motion effects
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
+import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import { Link } from "react-router-dom";
+
+// 🚨 IMPORTANT: Assuming these images exist and are used for the backgrounds
+import bghome from "@/assets/contactcta.jpg"; 
+import bgbanner from "@/assets/contactbg.jpg"; 
+
+const Contact = () => {
+  // --- Animation Setup (Intersection Observer Logic) ---
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Remove initial hiding/transform classes, triggering the CSS transition (motion)
+                    entry.target.classList.remove("translate-y-4", "opacity-0");
+                    obs.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    // Apply observer to all elements that should animate on scroll
+    document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  // --- End Animation Setup ---
+    
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // In a real application, you would send data to your server here.
+    toast.success("Thank you! We'll get back to you soon.");
+  };
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: "Email",
+      value: "info@zentraa.com",
+      link: "mailto:info@zentraa.com",
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      value: "+1 (555) 123-4567",
+      link: "tel:+15551234567",
+    },
+    {
+      icon: MapPin,
+      title: "Address",
+      value: "Innovation Drive, Tech Park, Digital City",
+      link: "#",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      {/* Hero Section - Image Background, Responsive Overlay, and Consistent Width */}
+      <section 
+        className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bghome})` }} // Image background
+      >
+        {/* Overlay: Dark in dark mode, light in light mode, with grid pattern */}
+        <div className="absolute inset-0 bg-background/80 dark:bg-background/80" /> 
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
+        
+        <div className="container mx-auto px-4 lg:px-8 relative z-10 py-32">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            {/* Text color is text-foreground (Black/White responsive text) */}
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.15s_forwards]">
+              Get In <span className="text-primary">Touch</span>
+            </h1>
+            <p className="text-xl text-muted-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.35s_forwards]">
+              Let's discuss how we can help transform your business with technology
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Form and Info Cards (Main Contact Content) */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {/* Contact Info (Left Column) */}
+            <div className="space-y-8">
+              <div className="animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
+                <h2 className="text-4xl font-bold mb-4 text-foreground">Let's Connect</h2>
+                <p className="text-lg text-muted-foreground">
+                  Have a project in mind? We'd love to hear from you. Fill out the form or reach out 
+                  through any of the contact methods below.
+                </p>
+              </div>
+
+              {/* Contact Info Cards - STAGGERED SLIDE UP */}
+              <div className="space-y-6">
+                {contactInfo.map((info, index) => (
+                  <Card 
+                    key={index} 
+                    className="animate-on-scroll border-border/50 bg-card translate-y-4 opacity-0 transition-all duration-700"
+                    style={{ transitionDelay: `${index * 150}ms` }}
+                  >
+                    <CardContent className="p-6">
+                      <a
+                        href={info.link}
+                        className="flex items-center space-x-4 group"
+                      >
+                        {/* Icon circle uses primary/10 accent */}
+                        <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                          <info.icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground">{info.title}</p>
+                          {/* Text uses foreground/primary color */}
+                          <p className="font-medium text-card-foreground group-hover:text-primary transition-colors">
+                            {info.value}
+                          </p>
+                        </div>
+                      </a>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+
+              {/* Business Hours Card (Slide Up with Delay) */}
+              <Card 
+                className="animate-on-scroll border-primary bg-secondary translate-y-4 opacity-0 transition-all duration-700"
+                style={{ transitionDelay: `${contactInfo.length * 150}ms` }} // Delay after info cards finish
+              >
+                <CardContent className="p-6 text-secondary-foreground">
+                  <h3 className="text-xl font-semibold mb-2">Business Hours</h3>
+                  <div className="space-y-1 text-secondary-foreground/90">
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Form - SLIDE UP WITH DELAY */}
+            <Card 
+                className="animate-on-scroll border-border/50 shadow-elegant bg-card translate-y-4 opacity-0 transition-all duration-700"
+                style={{ transitionDelay: '300ms' }} // Start slightly after the left column starts
+            >
+              <CardContent className="p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Form fields remain standard for usability */}
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-card-foreground">Full Name *</label>
+                    <Input id="name" placeholder="John Doe" required className="bg-background"/>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-card-foreground">Email Address *</label>
+                    <Input id="email" type="email" placeholder="john@example.com" required className="bg-background"/>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-medium text-card-foreground">Phone Number</label>
+                    <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" className="bg-background"/>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="company" className="text-sm font-medium text-card-foreground">Company</label>
+                    <Input id="company" placeholder="Your Company" className="bg-background"/>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-card-foreground">Message *</label>
+                    <Textarea id="message" placeholder="Tell us about your project..." required rows={5} className="bg-background"/>
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full">
+                    Send Message
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Maps Section - SLIDE UP */}
+      <section className="pb-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-6xl mx-auto animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
+            <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Our Location</h2>
+            <div className="aspect-video overflow-hidden rounded-xl border border-border/50 shadow-lg">
+              {/* Placeholder for Google Map Embed */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.287895048995!2d-73.9856644845946!3d40.748440579327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b20b22a5%3A0x89c158385202ed6a!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1644345598284!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                aria-label="Google Maps Location"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section - Image Background, Responsive Overlay, and Consistent Width */}
+      <section 
+        className="py-24 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgbanner})` }} 
+      >
+        {/* Overlay: Light (bg-background/90) in light mode for dark text. Dark (dark:bg-background/80) in dark mode for light text. */}
+        <div className="absolute inset-0 bg-background/90 dark:bg-background/80" /> 
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAi IGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
+        
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="max-w-3xl mx-auto text-center space-y-8 animate-on-scroll">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              Ready to start your project?
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Book a consultation with our experts today.
+            </p>
+            <Link to="/contact">
+              <Button size="lg" className="shadow-lg">
+                Schedule a Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Contact;
