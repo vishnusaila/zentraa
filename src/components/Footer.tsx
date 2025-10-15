@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
 // 🚨 UPDATED LOGO IMPORTS for dual theme support
-import logoLight from "@/assets/logo-light.png"; 
+import logoLight from "@/assets/logo-blue.png"; 
 // Assuming the dark logo is named 'logo-dark.png'
-import logoDark from "@/assets/logo-black.png"; 
+import logoDark from "@/assets/logo-white.png"; 
 
 export const Footer = () => {
   return (
@@ -32,7 +32,6 @@ export const Footer = () => {
                 // Fallback added in case dark asset path is incorrect
                 onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/40x40/2a3141/ffffff?text=D' }}
               />
-              <h1>ZENTRAA</h1>
             </div>
             {/* END DUAL LOGO */}
 

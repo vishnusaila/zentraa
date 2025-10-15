@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import logoDark from "@/assets/logo-black.png"; 
-import logo from "@/assets/logo-light.png"; 
+import logoDark from "@/assets/logo-white.png"; 
+import logo from "@/assets/logo-blue.png"; 
 // 🚨 FIX: Using a robust, guaranteed placeholder for the light logo
 const logoLight = logo; 
 
@@ -55,13 +55,13 @@ export const Navbar = () => {
             <img 
               src={logoLight} 
               alt="Zentraa Logo (Light)" 
-              className="h-44 w-auto transition-transform group-hover:scale-110 dark:hidden" 
+              className="h-20 w-auto transition-transform group-hover:scale-110 dark:hidden" 
             />
             {/* Logo for Dark Mode (Hidden by default, visible in dark mode) */}
             <img 
               src={logoDark} 
               alt="Zentraa Logo (Dark)" 
-              className="h-44 w-auto transition-transform group-hover:scale-110 hidden dark:block" 
+              className="h-20 w-auto transition-transform group-hover:scale-110 hidden dark:block" 
               onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src='https://placehold.co/40x40/2a3141/ffffff?text=D' }} // Fallback for dark logo asset error
             />
           </Link>

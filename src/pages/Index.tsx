@@ -9,7 +9,6 @@ import { Footer } from "@/components/Footer";
 import bghome from "@/assets/homebg.png" 
 import bgbanner from "@/assets/bgbanner.jpg" 
 import bg from "@/assets/web2.webp" 
-
 import logod from "@/assets/logo-b.png" 
 import whypart from "@/assets/index.jpg" 
 // Assuming logo import from common components or assets for loader
@@ -27,7 +26,6 @@ const Index = () => {
             setIsLoading(false);
             
             // 🚨 FIX: Force initial animation reveal 50ms after loading screen disappears
-            // This ensures content already in the viewport becomes visible instantly after load.
             setTimeout(() => {
                 document.querySelectorAll(".animate-on-scroll").forEach(el => {
                     if (el.classList.contains('opacity-0')) {
@@ -135,39 +133,38 @@ const Index = () => {
     // Render the loading overlay with custom image background
     if (isLoading) {
         return (
-             <div 
-            className="fixed inset-0 flex flex-col items-center justify-center bg-cover bg-center z-[9999] transition-opacity duration-500"
-            style={{ backgroundImage: `url(${bg})` }}
+            <div 
+                className="fixed inset-0 flex flex-col items-center justify-center bg-cover bg-center z-[9999] transition-opacity duration-500"
+                style={{ backgroundImage: `url(${bg})` }}
             >
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/60" />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/60" />
 
-            <div className="relative z-10 flex items-center">
-                {/* Spinner + Logo horizontally */}
-                <div className="flex items-center justify-center gap-3">
-                {/* Spinner */}
-                <div className="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+                {/* 🚨 FLEX CONTAINER: Vertical on mobile, Horizontal on tablet/desktop */}
+                <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-3">
+                    
+                    {/* Spinner (Rotator) */}
+                    {/* mb-4 for vertical gap on mobile, md:mb-0 md:mr-4 for horizontal gap on desktop */}
+                    <div className="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4 md:mb-0 md:mr-4" />
 
-                {/* Logos */}
-                <div className="flex items-center justify-center">
-                    {/* Light Theme Logo */}
-                    <img
-                    src={logod}
-                    alt="ZENTRAA Light Logo"
-                    className="block dark:hidden w-55 h-auto"
-                    />
-                    {/* Dark Theme Logo */}
-                    <img
-                    src={logod}
-                    alt="ZENTRAA Dark Logo"
-                    className="hidden dark:block w-55 h-auto"
-                    />
-                </div>
+                    {/* Logos and Text (Grouped vertically on both screens for branding block) */}
+                    <div className="flex flex-col items-center justify-center">
+                        {/* Light Theme Logo */}
+                        <img
+                        src={logod}
+                        alt="ZENTRAA Light Logo"
+                        className="block dark:hidden w-55 h-auto"
+                        />
+                        {/* Dark Theme Logo */}
+                        <img
+                        src={logod}
+                        alt="ZENTRAA Dark Logo"
+                        className="hidden dark:block w-55 h-auto"
+                        />
+                         {/* Text using primary-foreground (white/near-white) */}
+                    </div>
                 </div>
             </div>
-            </div>
-
-
         );
     }
 
@@ -184,7 +181,7 @@ const Index = () => {
             >
                 {/* Dark overlay over image uses the background color for blend */}
                 <div className="absolute inset-0 bg-background/80" /> 
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAw IDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
                 
                 {/* Text color is explicitly set to WHITE/NEAR-WHITE (foreground) for readability on dark overlay */}
                 <div className="container mx-auto px-4 lg:px-8 relative z-10 text-foreground"> 
@@ -383,7 +380,7 @@ const Index = () => {
                 */}
                 <div className="absolute inset-0 bg-background/90 dark:bg-background/80" /> 
                 {/* Grid pattern overlay (opacity 10%) */}
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAw IDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
                 
                 <div className="container mx-auto px-4 lg:px-8 relative z-10">
                     <div className="max-w-3xl mx-auto text-center space-y-8 animate-on-scroll">
