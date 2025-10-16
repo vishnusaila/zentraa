@@ -1,7 +1,7 @@
-import { useEffect } from "react"; // Added for motion effects
+import { useEffect, useState, useRef } from "react"; 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowRight, Send } from "lucide-react"; 
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,11 +9,21 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { Link } from "react-router-dom";
 
+// 🚨 EMAILJS CONFIGURATION - REPLACE THESE STRING PLACEHOLDERS 
+// WITH YOUR ACTUAL, LIVE CREDENTIALS FROM THE EMAILJS CONSOLE.
+const EMAILJS_SERVICE_ID = "service_821de98";
+const EMAILJS_TEMPLATE_ID = "template_whpfjsi";
+const EMAILJS_PUBLIC_KEY = "N4PFTNQbKcFBGKYbo";// Often referred to as User ID
+
 // 🚨 IMPORTANT: Assuming these images exist and are used for the backgrounds
 import bghome from "@/assets/contactcta.jpg"; 
 import bgbanner from "@/assets/contactbg.jpg"; 
 
 const Contact = () => {
+  // --- Form State and Refs ---
+  const form = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   // --- Animation Setup (Intersection Observer Logic) ---
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,10 +45,58 @@ const Contact = () => {
   }, []);
   // --- End Animation Setup ---
     
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real application, you would send data to your server here.
-    toast.success("Thank you! We'll get back to you soon.");
+
+    if (!form.current) return;
+    setIsSubmitting(true);
+
+    const formData = new FormData(form.current);
+    const data: { [key: string]: string } = {};
+    formData.forEach((value, key) => {
+        data[key] = value.toString();
+    });
+
+    // 🚨 EMAILJS INTEGRATION LOGIC (Actual fetch call structure)
+    try {
+        const payload = {
+            service_id: EMAILJS_SERVICE_ID,
+            template_id: EMAILJS_TEMPLATE_ID,
+            user_id: EMAILJS_PUBLIC_KEY,
+            template_params: {
+                user_name: data.name,
+                user_email: data.email,
+                user_phone: data.phone,
+                user_company: data.company,
+                message: data.message,
+            }
+        };
+
+        // Attempting the actual API call to EmailJS
+        const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        });
+
+        if (response.status !== 200) {
+            // Throw an error if EmailJS reports a failure (e.g., bad API key, wrong template ID)
+            throw new Error(`EmailJS failed with status: ${response.status}`);
+        }
+
+        toast.success("Inquiry Sent!", {
+            description: "Thank you for reaching out. We will connect with you shortly.",
+        });
+        form.current.reset();
+
+    } catch (error) {
+        console.error("Submission error:", error);
+        toast.error("Failed to send message.", {
+            description: "Please verify your EmailJS setup (IDs and Network settings) or try again later.",
+        });
+    } finally {
+        setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -68,7 +126,7 @@ const Contact = () => {
       >
         {/* Overlay: Dark in dark mode, light in light mode, with grid pattern */}
         <div className="absolute inset-0 bg-background/80 dark:bg-background/80" /> 
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAi IGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAw IDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10 py-32">
           <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -149,31 +207,41 @@ const Contact = () => {
                 style={{ transitionDelay: '300ms' }} // Start slightly after the left column starts
             >
               <CardContent className="p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Form fields remain standard for usability */}
+                <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+                  {/* Form fields now include NAME attributes */}
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-card-foreground">Full Name *</label>
-                    <Input id="name" placeholder="" required className="bg-background"/>
+                    <Input id="name" name="name"  required className="bg-background"/>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-card-foreground">Email Address *</label>
-                    <Input id="email" type="email" placeholder="" required className="bg-background"/>
+                    <Input id="email" name="email" type="email"  required className="bg-background"/>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium text-card-foreground">Phone Number</label>
-                    <Input id="phone" type="tel" placeholder="" className="bg-background"/>
+                    <Input id="phone" name="phone" type="tel"  className="bg-background"/>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="company" className="text-sm font-medium text-card-foreground">Company</label>
-                    <Input id="company" placeholder="" className="bg-background"/>
+                    <Input id="company" name="company"  className="bg-background"/>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-card-foreground">Message *</label>
-                    <Textarea id="message" placeholder="" required rows={5} className="bg-background"/>
+                    <Textarea id="message" name="message"  required rows={5} className="bg-background"/>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
+                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? (
+                            <>
+                                <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin mr-2" />
+                                Sending...
+                            </>
+                        ) : (
+                            <>
+                                <Send className="h-5 w-5 mr-2" />
+                                Send Message
+                            </>
+                        )}
                   </Button>
                 </form>
               </CardContent>
@@ -184,24 +252,24 @@ const Contact = () => {
 
       {/* Google Maps Section - SLIDE UP */}
       <section className="pb-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="max-w-6xl mx-auto animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
-          <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Our Location</h2>
-          <div className="aspect-video overflow-hidden rounded-xl border border-border/50 shadow-lg">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3103.336448994483!2d-75.5226713846449!3d39.15816897952343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7015c06d152dd%3A0x68c768a05aa7ed5a!2s8%20The%20Green%2C%20Suite%20B%2C%20Dover%2C%20DE%2019901!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              aria-label="Google Maps Location"
-            ></iframe>
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="max-w-6xl mx-auto animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
+            <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Our Location</h2>
+            <div className="aspect-video overflow-hidden rounded-xl border border-border/50 shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3103.336448994483!2d-75.5226713846449!3d39.15816897952343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7015c06d152dd%3A0x68c768a05aa7ed5a!2s8%20The%20Green%2C%20Suite%20B%2C%20Dover%2C%20DE%2019901!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                aria-label="Google Maps Location"
+              ></iframe>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
 
       {/* CTA Section - Image Background, Responsive Overlay, and Consistent Width */}
@@ -211,7 +279,7 @@ const Contact = () => {
       >
         {/* Overlay: Light (bg-background/90) in light mode for dark text. Dark (dark:bg-background/80) in dark mode for light text. */}
         <div className="absolute inset-0 bg-background/90 dark:bg-background/80" /> 
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAi IGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAi IGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAw IDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
         
         <div className="container mx-auto px-4 lg:px-8 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-8 animate-on-scroll">
