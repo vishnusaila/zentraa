@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
 // 🚨 UPDATED LOGO IMPORTS for dual theme support
-import logoLight from "@/assets/logo-blue.png"; 
+import logoLight from "@/assets/logo-for-light.png"; 
 // Assuming the dark logo is named 'logo-dark.png'
-import logoDark from "@/assets/logo-white.png"; 
+import logoDark from "@/assets/logo-for-dark.png"; 
 
 export const Footer = () => {
   return (
@@ -103,15 +103,12 @@ export const Footer = () => {
               <li className="flex items-start space-x-2 text-sm text-foreground">
                 {/* Icons use primary color for highlight */}
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
-                <span>Innovation Drive, Tech Park, Digital City</span>
+                <span>8 The Green, Suite B, Dover, DE 19901</span>
               </li>
-              <li className="flex items-center space-x-2 text-sm text-foreground">
-                <Phone className="h-4 w-4 flex-shrink-0 text-primary" />
-                <span>+1 (555) 123-4567</span>
-              </li>
+             
               <li className="flex items-center space-x-2 text-sm text-foreground">
                 <Mail className="h-4 w-4 flex-shrink-0 text-primary" />
-                <span>info@zentraa.com</span>
+                <span>Sales@zentraahub.com</span>
               </li>
             </ul>
           </div>

@@ -6,16 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react"; 
 
+import bghome from "@/assets/humanback.jpg";
+import bgbanner from "@/assets/humancta.jpeg";
+import bg from "@/assets/ai power.webp";
 
-
-import bghome from "@/assets/humanback.jpg" 
-import bgbanner from "@/assets/humancta.jpeg" 
-import bg from "@/assets/ai power.webp" 
 // 🚨 FALLBACK PLACEHOLDERS: Replace these URLs with your actual local image paths
-const BGHOME_URL = bghome; 
+const BGHOME_URL = bghome;
 const BGBANNER_URL = bgbanner;
 const BGSERVICE_URL = bg;
-
 
 const HumanExperience = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -67,7 +65,6 @@ const HumanExperience = () => {
         { icon: LayoutDashboard, title: "Comprehensive Monitoring", description: "Access real-time dashboards, reports, and performance insights that help leadership make data-driven decisions." },
     ];
 
-
     return (
         <div className="min-h-screen bg-background">
             <Navbar />
@@ -79,12 +76,12 @@ const HumanExperience = () => {
                 style={{ backgroundImage: `url(${BGHOME_URL})` }}
             >
                 <div className="absolute inset-0 bg-background/80 dark:bg-background/80" />
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
 
                 <div className="container mx-auto px-4 lg:px-8 relative z-10 py-32 text-foreground"> 
                     <div className="max-w-4xl mx-auto text-center space-y-8 animate-on-scroll">
                         <h1 className="text-5xl md:text-6xl font-bold text-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.15s_forwards]">
-                        <span className="text-primary">IntelZen:</span> Smarter Intelligent Facility Management. <span className="text-primary">Powered by AI.</span>
+                            <span className="text-primary">IntelZen<sup className="text-2xl md:text-3xl align-super font-bold tracking-tight">™</sup></span> Smarter Intelligent Facility Management. <span className="text-primary">Powered by AI.</span>
                         </h1>
                         <p className="text-xl text-muted-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.35s_forwards]">
                             Transform the way you manage buildings, workplaces, and industrial sites with intelligent issue tracking, automated task routing, and real-time analytics—all in one platform.
@@ -97,7 +94,7 @@ const HumanExperience = () => {
                                 </Button>
                             </Link>
         
-                            <Button size="lg" variant="outline">See IntelZen in Action</Button>
+                            <Button size="lg" variant="outline">See IntelZen™ in Action</Button>
                         </div>
                     </div>
                 </div>
@@ -110,12 +107,12 @@ const HumanExperience = () => {
                         
                         {/* LEFT: The Challenge (Section 1 Content) */}
                         <div className="space-y-6 animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
-                            <h2 className="text-4xl font-bold text-foreground">Facility Management Is Complex — IntelZen Makes It Simple</h2>
+                            <h2 className="text-4xl font-bold text-foreground">Facility Management Is Complex — IntelZen™ Makes It Simple</h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
                                 Managing multiple properties, offices, or plants involves hundreds of maintenance requests, safety checks, and service tasks every week. Without structure and visibility, issues go unresolved, SLAs are missed, and costs rise.
                             </p>
                             <p className="text-lg font-semibold text-primary/80 leading-relaxed">
-                                IntelZen brings order, automation, and intelligence to the process—so nothing falls through the cracks.
+                                IntelZen™ brings order, automation, and intelligence to the process—so nothing falls through the cracks.
                             </p>
                         </div>
 
@@ -123,7 +120,7 @@ const HumanExperience = () => {
                         <div className="space-y-6 animate-on-scroll translate-y-4 opacity-0 transition-all duration-700" style={{ transitionDelay: '200ms' }}>
                             <h2 className="text-4xl font-bold text-foreground">AI-Powered Issue Management for Modern Facilities</h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                IntelZen is an **AI-enabled platform** that allows teams to **capture, categorize, assign, and track** facility-related issues in real time. Our smart engine analyzes every submission and routes it automatically to the right team for resolution.
+                                IntelZen™ is an <strong>AI-enabled platform</strong> that allows teams to <strong>capture, categorize, assign, and track</strong> facility-related issues in real time. Our smart engine analyzes every submission and routes it automatically to the right team for resolution.
                             </p>
                             
                             <h3 className="text-xl font-semibold text-foreground border-l-4 border-primary pl-3">Built For:</h3>
@@ -164,16 +161,16 @@ const HumanExperience = () => {
                 </div>
             </section>
 
-            {/* Section 4: How IntelZen Works (Steps Layout) */}
+            {/* Section 4: How IntelZen™ Works (Steps Layout) */}
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-4 lg:px-8">
                     <div className="max-w-6xl mx-auto">
                         <h2 className="text-4xl font-bold text-center mb-16 text-foreground animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">From Report to Resolution — Simplified</h2>
                         
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                            {[
+                            {[ 
                                 { step: "01", title: "Capture", description: "Staff or tenants log issues via mobile app, web portal, or QR code." },
-                                { step: "02", title: "Analyze", description: "IntelZen’s AI reads, categorizes, and prioritizes the request." },
+                                { step: "02", title: "Analyze", description: "IntelZen™’s AI reads, categorizes, and prioritizes the request." },
                                 { step: "03", title: "Assign", description: "Automatically routes the issue to the right team or technician." },
                                 { step: "04", title: "Resolve", description: "Track, validate, and close issues with full visibility and analytics." },
                             ].map((phase, index) => (
@@ -189,7 +186,7 @@ const HumanExperience = () => {
                             ))}
                         </div>
                         <div className="text-center mt-12 animate-on-scroll translate-y-4 opacity-0 transition-all duration-700" style={{ transitionDelay: '800ms' }}>
-                            <Button size="lg">Watch Demo</Button>
+                            <Button size="lg">Watch IntelZen™ Demo</Button>
                         </div>
                     </div>
                 </div>
@@ -199,7 +196,7 @@ const HumanExperience = () => {
             <section className="py-24 bg-card">
                 <div className="container mx-auto px-4 lg:px-8">
                     <div className="max-w-6xl mx-auto space-y-8 animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
-                        <h2 className="text-4xl font-bold text-foreground mb-6">The IntelZen Vision: Intelligence. Clarity. Control.</h2>
+                        <h2 className="text-4xl font-bold text-foreground mb-6">The IntelZen™ Vision: Intelligence. Clarity. Control.</h2>
                         
                         <div className="grid md:grid-cols-3 gap-8 pt-4">
                             {visionPillars.map((pillar, index) => (
@@ -225,7 +222,7 @@ const HumanExperience = () => {
                         <div className="space-y-6 animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
                             <h2 className="text-4xl font-bold text-foreground">From Reactive to Predictive Operations</h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
-                                IntelZen’s analytics go beyond tracking—they help you anticipate problems before they occur. Discover recurring issues, forecast maintenance needs, and benchmark performance across all your properties or departments using **real-time data dashboards**.
+                                IntelZen™’s analytics go beyond tracking—they help you anticipate problems before they occur. Discover recurring issues, forecast maintenance needs, and benchmark performance across all your properties or departments using <strong>real-time data dashboards</strong>.
                             </p>
                             <h3 className="text-xl font-semibold text-primary pt-2">Key Metrics Visibility:</h3>
                             <ul className="space-y-2 text-muted-foreground">
@@ -269,7 +266,7 @@ const HumanExperience = () => {
                             <Card className="animate-on-scroll bg-background transition-all duration-700 translate-y-4 opacity-0" style={{ transitionDelay: '300ms' }}>
                                 <CardContent className="p-6">
                                     <p className="text-lg italic text-foreground mb-4">
-                                        “IntelZen helped us cut issue resolution time by nearly 40%. Our teams can now focus on delivering better tenant experiences.”
+                                        “IntelZen™ helped us cut issue resolution time by nearly 40%. Our teams can now focus on proactive maintenance instead of chasing pending tickets.”
                                     </p>
                                     <p className="font-semibold text-primary">— Operations Head, Global Property Management Firm</p>
                                 </CardContent>
@@ -288,14 +285,13 @@ const HumanExperience = () => {
                 </div>
             </section>
 
-
             {/* Section 9: Final Call to Action */}
             <section
                 className="py-24 relative overflow-hidden bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${BGBANNER_URL})` }}
             >
                 <div className="absolute inset-0 bg-background/90 dark:bg-background/80" />
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAi IGhlaWdodD0iNjAi IHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAw IDAgMTAi IGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAw IDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
 
                 <div className="container mx-auto px-4 lg:px-8 relative z-10">
                     <div className="max-w-4xl mx-auto text-center space-y-8 animate-on-scroll">
@@ -303,7 +299,7 @@ const HumanExperience = () => {
                             Bring Zen to Your Facility Operations
                         </h2>
                         <p className="text-xl text-muted-foreground">
-                            Join leading property and operations teams using IntelZen to make facility management intelligent, transparent, and effortless.
+                            Join leading property and operations teams using IntelZen™ to make facility management intelligent, transparent, and effortless.
                         </p>
                         <div className="flex justify-center gap-4">
                             <Link to="/contact">

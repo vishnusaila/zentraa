@@ -45,19 +45,14 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "info@zentraa.com",
-      link: "mailto:info@zentraa.com",
+      value: "Sales@zentraahub.com",
+      link: "mailto:Sales@zentraahub.com",
     },
-    {
-      icon: Phone,
-      title: "Phone",
-      value: "+1 (555) 123-4567",
-      link: "tel:+15551234567",
-    },
+    
     {
       icon: MapPin,
       title: "Address",
-      value: "Innovation Drive, Tech Park, Digital City",
+      value: "8 The Green, Suite B, Dover, DE 19901",
       link: "#",
     },
   ];
@@ -158,23 +153,23 @@ const Contact = () => {
                   {/* Form fields remain standard for usability */}
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-card-foreground">Full Name *</label>
-                    <Input id="name" placeholder="John Doe" required className="bg-background"/>
+                    <Input id="name" placeholder="" required className="bg-background"/>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-card-foreground">Email Address *</label>
-                    <Input id="email" type="email" placeholder="john@example.com" required className="bg-background"/>
+                    <Input id="email" type="email" placeholder="" required className="bg-background"/>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium text-card-foreground">Phone Number</label>
-                    <Input id="phone" type="tel" placeholder="+1 (555) 123-4567" className="bg-background"/>
+                    <Input id="phone" type="tel" placeholder="" className="bg-background"/>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="company" className="text-sm font-medium text-card-foreground">Company</label>
-                    <Input id="company" placeholder="Your Company" className="bg-background"/>
+                    <Input id="company" placeholder="" className="bg-background"/>
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-card-foreground">Message *</label>
-                    <Textarea id="message" placeholder="Tell us about your project..." required rows={5} className="bg-background"/>
+                    <Textarea id="message" placeholder="" required rows={5} className="bg-background"/>
                   </div>
 
                   <Button type="submit" size="lg" className="w-full">
@@ -189,25 +184,25 @@ const Contact = () => {
 
       {/* Google Maps Section - SLIDE UP */}
       <section className="pb-24 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-          <div className="max-w-6xl mx-auto animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
-            <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Our Location</h2>
-            <div className="aspect-video overflow-hidden rounded-xl border border-border/50 shadow-lg">
-              {/* Placeholder for Google Map Embed */}
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.287895048995!2d-73.9856644845946!3d40.748440579327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b20b22a5%3A0x89c158385202ed6a!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1644345598284!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                aria-label="Google Maps Location"
-              ></iframe>
-            </div>
+      <div className="container mx-auto px-4 lg:px-8">
+        <div className="max-w-6xl mx-auto animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
+          <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Our Location</h2>
+          <div className="aspect-video overflow-hidden rounded-xl border border-border/50 shadow-lg">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3103.336448994483!2d-75.5226713846449!3d39.15816897952343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c7015c06d152dd%3A0x68c768a05aa7ed5a!2s8%20The%20Green%2C%20Suite%20B%2C%20Dover%2C%20DE%2019901!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              aria-label="Google Maps Location"
+            ></iframe>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
+
 
       {/* CTA Section - Image Background, Responsive Overlay, and Consistent Width */}
       <section 
