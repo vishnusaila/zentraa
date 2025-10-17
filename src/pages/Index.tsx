@@ -199,8 +199,8 @@ const Index = () => {
             <Button
               size="sm"
               className="px-6 py-2 rounded-full font-medium border border-black dark:border-white 
-                        text-black dark:text-primary bg-white dark:bg-black 
-                        hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition"
+                        text-black dark:text-white bg-white dark:bg-black 
+                        hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-primary transition"
             >
               {service.buttonText}
             </Button>
@@ -291,7 +291,7 @@ const Index = () => {
               Let's discuss how we can help you achieve your digital transformation goals.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="shadow-lg">
+              <Button size="lg" className="shadow-lg text-black hover:text-white">
                 Schedule a Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
