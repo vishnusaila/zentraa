@@ -167,7 +167,7 @@ const Careers = () => {
                                 style={{ transitionDelay: `${index * 150}ms` }}
                             >
                                 <CardContent className="p-8">
-                                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 ">
                                         <div className="space-y-3">
                                             <h3 className="text-2xl font-semibold text-foreground">{job.title}</h3>
                                             <p className="text-muted-foreground">{job.description}</p>
@@ -181,6 +181,7 @@ const Careers = () => {
                                             </div>
                                         </div>
                                         {/* 🚨 UPDATED LINK: Points to ApplyPage with job title parameter */}
+                                        
                                         <Link to={`/apply?job=${encodeURIComponent(job.title)}`}>
                                             <Button>Apply Now</Button>
                                         </Link>
@@ -211,7 +212,7 @@ const Careers = () => {
                         </p>
                         {/* 🚨 UPDATED LINK: Points to a generic application path */}
                         <Link to="/apply"> 
-                            <Button size="lg" className="shadow-lg">
+                            <Button size="lg" className="shadow-lg text-white hover:text-black dark:text-black hover:dark:text-white">
                                 Get In Touch
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>

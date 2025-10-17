@@ -128,9 +128,9 @@ const ApplyPage = () => {
                         <Button 
                             variant="ghost" 
                             onClick={() => navigate(-1)} 
-                            className="mb-6 text-muted-foreground hover:text-primary p-0"
+                            className="mb-6 text-muted-foreground hover:text-primary  bg-primary text-white hover:text-black dark:text-black hover:dark:text-white "
                         >
-                            <ArrowLeft className="h-5 w-5 mr-2" /> Back to Careers
+                            <ArrowLeft className="h-5 w-5 mr-2 " /> Back to Careers
                         </Button>
                         
                         <Card className="border-primary/30 shadow-elegant bg-card animate-on-scroll">

@@ -388,7 +388,7 @@ const TechConsulting = () => {
               business forward.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="shadow-lg">
+              <Button size="lg" className="shadow-lg text-white hover:text-black dark:text-black hover:dark:text-white">
                 Get Started Today
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

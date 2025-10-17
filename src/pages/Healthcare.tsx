@@ -285,7 +285,7 @@ const Healthcare = () => {
                             Schedule a free Manufacturers assessment and demo of the MedIntel<sup className="text-xs align-super">™</sup> platform.
                         </p>
                         <Link to="/contact">
-                            <Button size="lg" className="shadow-lg">
+                            <Button size="lg" className="shadow-lg text-white hover:text-black dark:text-black hover:dark:text-white">
                                 Book a Demo
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </Button>

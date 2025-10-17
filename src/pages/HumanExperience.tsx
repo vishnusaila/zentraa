@@ -303,7 +303,7 @@ const HumanExperience = () => {
                         </p>
                         <div className="flex justify-center gap-4">
                             <Link to="/contact">
-                                <Button size="lg" className="shadow-lg">
+                                <Button size="lg" className="shadow-lg text-white hover:text-black dark:text-black hover:dark:text-white">
                                     Request a Demo
                                     <ArrowRight className="ml-2 h-5 w-5" />
                                 </Button>

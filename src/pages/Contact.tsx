@@ -230,7 +230,7 @@ const Contact = () => {
                     <Textarea id="message" name="message"  required rows={5} className="bg-background"/>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                  <Button type="submit" size="lg" className="w-full " disabled={isSubmitting}>
                       {isSubmitting ? (
                             <>
                                 <div className="w-5 h-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin mr-2" />
@@ -238,7 +238,7 @@ const Contact = () => {
                             </>
                         ) : (
                             <>
-                                <Send className="h-5 w-5 mr-2" />
+                                <Send className="h-5 w-5 mr-2 " />
                                 Send Message
                             </>
                         )}
@@ -290,7 +290,7 @@ const Contact = () => {
               Book a consultation with our experts today.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="shadow-lg">
+              <Button size="lg" className="shadow-lg text-white hover:text-black dark:text-black hover:dark:text-white">
                 Schedule a Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

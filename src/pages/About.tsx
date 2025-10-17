@@ -245,7 +245,7 @@ const About = () => {
               Contact us today for a strategic consultation.
             </p>
             <Link to="/contact">
-              <Button size="lg" className="shadow-lg">
+              <Button size="lg" className="shadow-lg text-white hover:text-black dark:text-black hover:dark:text-white">
                 Schedule a Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
