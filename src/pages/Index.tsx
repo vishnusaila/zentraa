@@ -13,6 +13,8 @@ import bg from "@/assets/web2.webp";
 import logod from "@/assets/logo-b.png";
 import whypart from "@/assets/index.jpg";
 
+import logoDark from "@/assets/for-dark.png"; 
+
 import medintel from "@/assets/medintel.jpg";
 import zedintel from "@/assets/intelzen.png";
 import tech from "@/assets/tech.png";
@@ -106,8 +108,8 @@ const Index = () => {
         <div className="relative z-10 flex flex-col items-center justify-center gap-3">
           <div className="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4 md:mb-0 md:mr-4" />
           <div className="flex flex-col items-center justify-center">
-            <img src={logod} alt="ZENTRAA Light Logo" className="block dark:hidden w-55 h-auto" />
-            <img src={logod} alt="ZENTRAA Dark Logo" className="hidden dark:block w-55 h-auto" />
+            <img src={logoDark} alt="ZENTRAA Light Logo" className="block dark:hidden w-50 h-auto" />
+            <img src={logoDark} alt="ZENTRAA Dark Logo" className="hidden dark:block w-50 h-auto" />
           </div>
         </div>
       </div>
@@ -151,47 +153,63 @@ const Index = () => {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
-    {/* Featured Services Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Business Solutions</h2>
-            <p className="text-xl text-muted-foreground ">
-                Explore specialized solutions for key industries and business needs.
+  {/* Featured Services Section */}
+<section className="py-24 bg-background">
+  <div className="container mx-auto px-4 lg:px-8">
+    {/* Heading */}
+    <div className="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        Business Solutions
+      </h2>
+      <p className="text-xl text-muted-foreground">
+        Explore specialized solutions for key industries and business needs.
+      </p>
+    </div>
+
+    {/* Cards Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {featuredServices.map((service, index) => (
+        <Card
+          key={index}
+          className="overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+        >
+          {/* Image Section */}
+          <div className="h-56 overflow-hidden">
+            <img
+              src={service.bgImage}
+              alt={service.title}
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            />
+          </div>
+
+          {/* Content Section */}
+          <CardContent className="p-6 flex flex-col items-center text-center bg-[#16b8d4]/80 dark:bg-[#16b8d4]/80 rounded-xl">
+            <div className="mb-3 text-white text-3xl">{service.icon}</div>
+            <h3 className="text-xl font-bold mb-2 text-white">
+              {service.title}
+            </h3>
+            <p className="text-white/90 text-sm mb-6 leading-relaxed">
+              {service.description}
             </p>
-            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
-            {featuredServices.map((service, index) => (
-                <Card
-                key={index}
-                className="relative overflow-hidden rounded-xl shadow-lg transition-transform hover:scale-105 animate-on-scroll motion-safe:animate-float"
-                style={{
-                    backgroundImage: `url(${service.bgImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    minHeight: '350px', // <-- Increase card height
-                }}
-                >
-                {/* Light Sky-Blue Overlay */}
-                <div className="absolute inset-0 bg-sky-200/40" />
+            {/* Centered Learn More Button */}
+            <Link to={service.link}>
+              <Button
+                size="sm"
+                className="px-6 py-2 rounded-full font-medium border border-white text-[#00B7B3] bg-white hover:bg-black hover:text-white transition"
+              >
+                {service.buttonText}
+              </Button>
+            </Link>
+          </CardContent>
 
-                <CardContent className="relative z-10 p-8 flex flex-col justify-between h-full text-black dark:text-white"> {/* <-- Increased padding */}
-                    <div>
-                    <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                    <p className="text-sm">{service.description}</p>
-                    </div>
-                    <Link to={service.link}>
-                    <Button size="sm" className="mt-4 bg-primary hover:bg-primary/90 text-white hover:text-black ">
-                        {service.buttonText}
-                    </Button>
-                    </Link>
-                </CardContent>
-                </Card>
-            ))}
-            </div>
-        </div>
-        </section>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Services Section */}
       <section className="py-24 bg-background">
