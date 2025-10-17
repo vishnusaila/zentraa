@@ -13,7 +13,7 @@ import bg from "@/assets/web2.webp";
 import logod from "@/assets/logo-b.png";
 import whypart from "@/assets/index.jpg";
 
-import logoDark from "@/assets/TM-white1.png"; 
+import logoDark from "@/assets/white1.png"; 
 
 import medintel from "@/assets/medintel.jpg";
 import zedintel from "@/assets/intelzen.png";
@@ -108,8 +108,8 @@ const Index = () => {
         <div className="relative z-10 flex flex-col items-center justify-center gap-3">
           <div className="w-20 h-20 border-4 border-primary border-t-transparent rounded-full animate-spin mb-4 md:mb-0 md:mr-4" />
           <div className="flex flex-col items-center justify-center">
-            <img src={logoDark} alt="ZENTRAA Light Logo" className="block dark:hidden w-50 h-auto" />
-            <img src={logoDark} alt="ZENTRAA Dark Logo" className="hidden dark:block w-50 h-auto" />
+            <img src={logoDark} alt="ZENTRAA Light Logo" className="block dark:hidden w-45 h-30" />
+            <img src={logoDark} alt="ZENTRAA Dark Logo" className="hidden dark:block w-45 h-30" />
           </div>
         </div>
       </div>

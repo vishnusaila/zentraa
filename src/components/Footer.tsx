@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Linkedin, Twitter, Mail, MapPin, Phone } from "lucide-react";
 // 🚨 UPDATED LOGO IMPORTS for dual theme support
-import logoLight from "@/assets/TM-blue1.png"; 
+import logoLight from "@/assets/blue.png"; 
 // Assuming the dark logo is named 'logo-dark.png'
-import logoDark from "@/assets/TM-white1.png"; 
+import logoDark from "@/assets/white1.png"; 
 
 export const Footer = () => {
   return (
