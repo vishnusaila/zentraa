@@ -13,7 +13,7 @@ import bg from "@/assets/web2.webp";
 import logod from "@/assets/logo-b.png";
 import whypart from "@/assets/index.jpg";
 
-import logoDark from "@/assets/for-dark.png"; 
+import logoDark from "@/assets/TM-white1.png"; 
 
 import medintel from "@/assets/medintel.jpg";
 import zedintel from "@/assets/intelzen.png";
@@ -183,7 +183,7 @@ const Index = () => {
           </div>
 
           {/* Content Section */}
-          <CardContent className="p-6 flex flex-col items-center text-center bg-primary/60 dark:bg-primary rounded-xl">
+          <CardContent className="p-6 flex flex-col items-center text-center bg-primary/30 dark:bg-primary rounded-xl">
           <div className="mb-3 text-3xl text-black dark:text-white">{service.icon}</div>
           
           <h3 className="text-xl font-bold mb-2 text-black dark:text-white">

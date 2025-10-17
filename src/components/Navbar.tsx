@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import logoDark from "@/assets/for-dark.png"; 
-import logo from "@/assets/for-light.png"; 
+import logoDark from "@/assets/TM-white1.png"; 
+import logo from "@/assets/TM-blue1.png"; 
 // 🚨 FIX: Using a robust, guaranteed placeholder for the light logo
 const logoLight = logo; 
 
@@ -28,10 +28,11 @@ export const Navbar = () => {
   ];
 
   const businessSolutions = [
-    { name: "MedIntel", path: "/healthcare" },
-    { name: "IntelZen", path: "/human-experience" },
-    { name: "Tech Consulting", path: "/tech-consulting" },
+  { name: "MedIntel™", path: "/healthcare" },
+  { name: "IntelZen™", path: "/human-experience" },
+  { name: "Tech Consulting", path: "/tech-consulting" },
   ];
+
 
   // Check if the current path matches any path inside the businessSolutions array
   const isSolutionsActive = businessSolutions.some(
