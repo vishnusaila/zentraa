@@ -183,25 +183,30 @@ const Index = () => {
           </div>
 
           {/* Content Section */}
-          <CardContent className="p-6 flex flex-col items-center text-center bg-primary/80 dark:bg-primary/80 rounded-xl">
-            <div className="mb-3 text-white text-3xl">{service.icon}</div>
-            <h3 className="text-xl font-bold mb-2 text-white">
-              {service.title}
-            </h3>
-            <p className="text-white/90 text-sm mb-6 leading-relaxed">
-              {service.description}
-            </p>
+          <CardContent className="p-6 flex flex-col items-center text-center bg-primary/60 dark:bg-primary rounded-xl">
+          <div className="mb-3 text-3xl text-black dark:text-white">{service.icon}</div>
+          
+          <h3 className="text-xl font-bold mb-2 text-black dark:text-white">
+            {service.title}
+          </h3>
+          
+          <p className="text-sm mb-6 leading-relaxed text-black/80 dark:text-white/90">
+            {service.description}
+          </p>
 
-            {/* Centered Learn More Button */}
-            <Link to={service.link}>
-              <Button
-                size="sm"
-                className="px-6 py-2 rounded-full font-medium border border-white text-primary bg-white hover:bg-black hover:text-white transition"
-              >
-                {service.buttonText}
-              </Button>
-            </Link>
-          </CardContent>
+          {/* Centered Learn More Button */}
+          <Link to={service.link}>
+            <Button
+              size="sm"
+              className="px-6 py-2 rounded-full font-medium border border-black dark:border-white 
+                        text-black dark:text-primary bg-white dark:bg-black 
+                        hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition"
+            >
+              {service.buttonText}
+            </Button>
+          </Link>
+        </CardContent>
+
 
         </Card>
       ))}
