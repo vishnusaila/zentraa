@@ -48,7 +48,7 @@ export const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-22">
+        <div className="flex items-center justify-between h-20">
           
           {/* 🚨 LOGO SECTION: Dual Logo Implementation with Fallbacks */}
           <Link to="/" className="flex items-center group">
