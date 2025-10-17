@@ -183,7 +183,7 @@ const Index = () => {
           </div>
 
           {/* Content Section */}
-          <CardContent className="p-6 flex flex-col items-center text-center bg-[#16b8d4]/80 dark:bg-[#16b8d4]/80 rounded-xl">
+          <CardContent className="p-6 flex flex-col items-center text-center bg-primary/80 dark:bg-primary/80 rounded-xl">
             <div className="mb-3 text-white text-3xl">{service.icon}</div>
             <h3 className="text-xl font-bold mb-2 text-white">
               {service.title}
@@ -196,7 +196,7 @@ const Index = () => {
             <Link to={service.link}>
               <Button
                 size="sm"
-                className="px-6 py-2 rounded-full font-medium border border-white text-[#00B7B3] bg-white hover:bg-black hover:text-white transition"
+                className="px-6 py-2 rounded-full font-medium border border-white text-primary bg-white hover:bg-black hover:text-white transition"
               >
                 {service.buttonText}
               </Button>
