@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import logoDark from "@/assets/1.png"; 
-import logo from "@/assets/2.png"; 
+import logoDark from "@/assets/two.png"; 
+import logo from "@/assets/one.png"; 
 // 🚨 FIX: Using a robust, guaranteed placeholder for the light logo
 const logoLight = logo; 
 
