@@ -13,7 +13,7 @@ import bg from "@/assets/web2.webp";
 import logod from "@/assets/logo-b.png";
 import whypart from "@/assets/index.jpg";
 
-import logoDark from "@/assets/white1.png"; 
+import logoDark from "@/assets/1.png"; 
 
 import medintel from "@/assets/medintel.jpg";
 import zedintel from "@/assets/intelzen.png";
@@ -55,16 +55,6 @@ const Index = () => {
     document.querySelectorAll(".animate-on-scroll").forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
-
-  // Services
-  const services = [
-    { icon: Code, title: "Product Design & Development", description: "End-to-end product engineering with modern tech stacks and agile methodologies." },
-    { icon: Shield, title: "Quality Engineering", description: "Comprehensive testing and quality assurance for flawless digital experiences." },
-    { icon: Users, title: "UI/UX Design", description: "Human-centered design that creates intuitive and engaging user experiences." },
-    { icon: Database, title: "Data Analytics & Engineering", description: "Transform data into actionable insights with advanced analytics solutions." },
-    { icon: Target, title: "Strategic Business Consulting", description: "Strategic guidance to align technology with your business objectives." },
-    { icon: Zap, title: "Talent Solutions", description: "Access top-tier tech talent to accelerate your digital transformation." },
-  ];
 
   // Featured Services
   const featuredServices = [
@@ -153,100 +143,57 @@ const Index = () => {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </section>
-  {/* Featured Services Section */}
-<section className="py-24 bg-background">
-  <div className="container mx-auto px-4 lg:px-8">
-    {/* Heading */}
-    <div className="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
-        Business Solutions
-      </h2>
-      <p className="text-xl text-muted-foreground">
-        Explore specialized solutions for key industries and business needs.
-      </p>
-    </div>
 
-    {/* Cards Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-      {featuredServices.map((service, index) => (
-        <Card
-          key={index}
-          className="overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
-        >
-          {/* Image Section */}
-          <div className="h-56 overflow-hidden">
-            <img
-              src={service.bgImage}
-              alt={service.title}
-              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-            />
-          </div>
-
-          {/* Content Section */}
-          <CardContent className="p-6 flex flex-col items-center text-center bg-primary/30 dark:bg-primary rounded-xl">
-          <div className="mb-3 text-3xl text-black dark:text-white">{service.icon}</div>
-          
-          <h3 className="text-xl font-bold mb-2 text-black dark:text-white">
-            {service.title}
-          </h3>
-          
-          <p className="text-sm mb-6 leading-relaxed text-black/80 dark:text-white/90">
-            {service.description}
-          </p>
-
-          {/* Centered Learn More Button */}
-          <Link to={service.link}>
-            <Button
-              size="sm"
-              className="px-6 py-2 rounded-full font-medium border border-black dark:border-white 
-                        text-black dark:text-white bg-white dark:bg-black 
-                        hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-primary transition"
-            >
-              {service.buttonText}
-            </Button>
-          </Link>
-        </CardContent>
-
-
-        </Card>
-      ))}
-    </div>
-  </div>
-</section>
-
-
-
-      {/* Services Section */}
+      {/* Featured Services Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">Our Services</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+              Business Solutions
+            </h2>
             <p className="text-xl text-muted-foreground">
-              Comprehensive solutions tailored to accelerate your digital transformation journey
+              Explore specialized solutions for key industries and business needs.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {featuredServices.map((service, index) => (
               <Card
                 key={index}
-                className={`animate-on-scroll card-hover border-border/50 bg-card transition-all duration-700 translate-y-4 opacity-0`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                className="overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
               >
-                <CardContent className="p-6 space-y-4">
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <service.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-card-foreground">{service.title}</h3>
-                  <p className="text-muted-foreground">{service.description}</p>
+                <div className="h-56 overflow-hidden">
+                  <img
+                    src={service.bgImage}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+
+                <CardContent className="p-6 flex flex-col items-center text-center bg-primary/30 dark:bg-primary rounded-xl">
+                  <div className="mb-3 text-3xl text-black dark:text-white">{service.icon}</div>
+                  <h3 className="text-xl font-bold mb-2 text-black dark:text-white">
+                    {service.title}
+                  </h3>
+                  <p className="text-sm mb-6 leading-relaxed text-black/80 dark:text-white/90">
+                    {service.description}
+                  </p>
+                  <Link to={service.link}>
+                    <Button
+                      size="sm"
+                      className="px-6 py-2 rounded-full font-medium border border-black dark:border-white 
+                                text-black dark:text-white bg-white dark:bg-black 
+                                hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-primary transition"
+                    >
+                      {service.buttonText}
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </section>
-
-      
-
 
       {/* Why Choose Us Section */}
       <section className="py-24 relative overflow-hidden">
@@ -274,6 +221,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+
 
       {/* CTA Section */}
       <section

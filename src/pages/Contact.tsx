@@ -117,7 +117,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Navbar/>
 
       {/* Hero Section - Image Background, Responsive Overlay, and Consistent Width */}
       <section 

@@ -81,7 +81,7 @@ const HumanExperience = () => {
                 <div className="container mx-auto px-4 lg:px-8 relative z-10 py-32 text-foreground"> 
                     <div className="max-w-4xl mx-auto text-center space-y-8 animate-on-scroll">
                         <h1 className="text-5xl md:text-6xl font-bold text-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.15s_forwards]">
-                            <span className="text-primary">IntelZen<sup className="text-2xl md:text-3xl align-super font-bold tracking-tight">™</sup></span> Smarter Intelligent Facility Management. <span className="text-primary">Powered by AI.</span>
+                            <span className="text-primary">IntelZen<sup className="text-2xl md:text-3xl align-super font-bold tracking-tight">™</sup></span> Smarter Intelligent Issue Management <span className="text-primary">Powered by AI.</span>
                         </h1>
                         <p className="text-xl text-muted-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.35s_forwards]">
                             Transform the way you manage buildings, workplaces, and industrial sites with intelligent issue tracking, automated task routing, and real-time analytics—all in one platform.
@@ -107,7 +107,7 @@ const HumanExperience = () => {
                         
                         {/* LEFT: The Challenge (Section 1 Content) */}
                         <div className="space-y-6 animate-on-scroll translate-y-4 opacity-0 transition-all duration-700">
-                            <h2 className="text-4xl font-bold text-foreground">Facility Management Is Complex — IntelZen™ Makes It Simple</h2>
+                            <h2 className="text-4xl font-bold text-foreground">Issue Management Is Complex — IntelZen™ Makes It Simple</h2>
                             <p className="text-lg text-muted-foreground leading-relaxed">
                                 Managing multiple properties, offices, or plants involves hundreds of maintenance requests, safety checks, and service tasks every week. Without structure and visibility, issues go unresolved, SLAs are missed, and costs rise.
                             </p>

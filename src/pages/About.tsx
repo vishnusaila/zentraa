@@ -13,6 +13,10 @@ import bgbanner from "@/assets/aboutcta.jpg";
 import teamMember1 from "@/assets/about.jpg"; // Placeholder
 import teamMember2 from "@/assets/about.jpg"; // Placeholder
 
+import medintel from "@/assets/medintel.jpg";
+import zedintel from "@/assets/intelzen.png";
+import tech from "@/assets/tech.png";
+
 const About = () => {
   // --- Animation Setup (Intersection Observer Logic) ---
   useEffect(() => {
@@ -227,6 +231,77 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Explore Services Mission Section */}
+      <section className="py-24 bg-gray-50 dark:bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {/* MedIntel */}
+            <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white dark:bg-card cursor-pointer">
+              <div className="h-64 overflow-hidden">
+                <img
+                  src={medintel}
+                  alt="MedIntel"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <p className="text-lg text-foreground mb-4">
+                  MedIntel<sup className="text-1xl md:text-1xl align-super">™</sup> transforms healthcare through innovative digital solutions, empowering smarter decisions, better patient care, and operational excellence.
+                </p>
+                <Link to="/healthcare">
+                  <Button size="sm" className="px-6 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition">
+                    Explore
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* IntelZen */}
+            <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white dark:bg-card cursor-pointer">
+              <div className="h-64 overflow-hidden">
+                <img
+                  src={zedintel}
+                  alt="IntelZen"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <p className="text-lg text-foreground mb-4">
+                  IntelZen<sup className="text-1xl md:text-1xl align-super">™</sup> enhances human experiences with smart solutions, creating seamless engagement and impactful interactions across teams and customers.
+                </p>
+                <Link to="/human-experience">
+                  <Button size="sm" className="px-6 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition">
+                    Explore
+                  </Button>
+                </Link>
+              </div>
+            </div>
+
+            {/* Tech Consulting */}
+            <div className="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 bg-white dark:bg-card cursor-pointer">
+              <div className="h-64 overflow-hidden">
+                <img
+                  src={tech}
+                  alt="Tech Consulting"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <p className="text-lg text-foreground mb-4">
+                  Our tech consulting empowers businesses with cutting-edge strategies, transforming operations and enabling measurable growth and innovation.
+                </p>
+                <Link to="/tech-consulting">
+                  <Button size="sm" className="px-6 py-2 rounded-full bg-primary text-white hover:bg-primary/90 transition">
+                    Explore
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* CTA Section (The Accent Block with Image) */}
       <section
