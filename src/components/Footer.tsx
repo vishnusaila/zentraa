@@ -79,12 +79,12 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link to="/healthcare" className="text-sm text-foreground hover:text-primary transition-colors">
-                  Healthcare Solutions
+                  MedIntel™ 
                 </Link>
               </li>
               <li>
                 <Link to="/human-experience" className="text-sm text-foreground hover:text-primary transition-colors">
-                  Human Experience
+                   IntelZen™
                 </Link>
               </li>
               <li>

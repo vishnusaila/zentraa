@@ -78,25 +78,45 @@ const HumanExperience = () => {
                 <div className="absolute inset-0 bg-background/80 dark:bg-background/80" />
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
 
-                <div className="container mx-auto px-4 lg:px-8 relative z-10 py-32 text-foreground"> 
-                    <div className="max-w-4xl mx-auto text-center space-y-8 animate-on-scroll">
-                        <h1 className="text-5xl md:text-6xl font-bold text-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.15s_forwards]">
-                            <span className="text-primary">IntelZen<sup className="text-2xl md:text-3xl align-super font-bold tracking-tight">™</sup></span> Smarter Intelligent Issue Management <span className="text-primary">Powered by AI.</span>
-                        </h1>
-                        <p className="text-xl text-muted-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.35s_forwards]">
-                            Transform the way you manage buildings, workplaces, and industrial sites with intelligent issue tracking, automated task routing, and real-time analytics—all in one platform.
-                        </p>
-                        <div className="flex justify-center gap-4">
-                            <Link to="/contact">
-                                <Button size="lg" className="group shadow-glow bg-primary hover:text-black">
-                                    Request a Demo
-                                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                            </Link>
-        
-                            <Button size="lg" variant="outline">See IntelZen™ in Action</Button>
-                        </div>
+                <div className="container mx-auto px-4 lg:px-8 relative z-10 py-32 text-foreground">
+                <div className="max-w-4xl mx-auto text-center space-y-8 animate-on-scroll">
+                    <h1 className="text-5xl md:text-6xl font-bold text-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.15s_forwards]">
+                    <span className="text-primary">
+                        IntelZen
+                        <sup className="text-2xl md:text-3xl align-super font-bold tracking-tight">
+                        ™
+                        </sup>
+                    </span>{" "}
+                    Smarter Intelligent Issue Management{" "}
+                    <span className="text-primary">Powered by AI.</span>
+                    </h1>
+                    <p className="text-xl text-muted-foreground opacity-0 animate-[fadeInUp_0.8s_ease-out_0.35s_forwards]">
+                    Transform the way you manage buildings, workplaces, and industrial
+                    sites with intelligent issue tracking, automated task routing, and
+                    real-time analytics—all in one platform.
+                    </p>
+
+                    {/* ✅ Responsive Buttons */}
+                    <div className="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-0 w-full">
+                    <Link to="/contact" className="w-full sm:w-auto">
+                        <Button
+                        size="lg"
+                        className="group shadow-glow bg-primary hover:text-black w-full sm:w-auto"
+                        >
+                        Request a Demo
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </Link>
+
+                    <Button
+                        size="lg"
+                        variant="outline"
+                        className="w-full sm:w-auto"
+                    >
+                        See IntelZen™ in Action
+                    </Button>
                     </div>
+                </div>
                 </div>
             </section>
             
@@ -286,37 +306,48 @@ const HumanExperience = () => {
             </section>
 
             {/* Section 9: Final Call to Action */}
-            <section
-                className="py-24 relative overflow-hidden bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${BGBANNER_URL})` }}
-            >
-                <div className="absolute inset-0 bg-background/90 dark:bg-background/80" />
-                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAw IDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
+                <section
+                    className="py-24 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url(${BGBANNER_URL})` }}
+                >
+                    <div className="absolute inset-0 bg-background/90 dark:bg-background/80" />
+                    <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAw IDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-10" />
 
-                <div className="container mx-auto px-4 lg:px-8 relative z-10">
+                    <div className="container mx-auto px-4 lg:px-8 relative z-10">
                     <div className="max-w-4xl mx-auto text-center space-y-8 animate-on-scroll">
                         <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-                            Bring Zen to Your Facility Operations
+                        Bring Zen to Your Facility Operations
                         </h2>
                         <p className="text-xl text-muted-foreground">
-                            Join leading property and operations teams using IntelZen™ to make facility management intelligent, transparent, and effortless.
+                        Join leading property and operations teams using IntelZen™ to make
+                        facility management intelligent, transparent, and effortless.
                         </p>
-                        <div className="flex justify-center gap-4">
-                            <Link to="/contact">
-                                <Button size="lg" className="shadow-lg text-white hover:text-black dark:text-black hover:dark:text-white">
-                                    Request a Demo
-                                    <ArrowRight className="ml-2 h-5 w-5" />
-                                </Button>
-                            </Link>
-                            <Link to="/contact">
-                                <Button size="lg" variant="outline">
-                                    Talk to Our Experts
-                                </Button>
-                            </Link>
+
+                        {/* ✅ Responsive Buttons */}
+                        <div className="flex flex-col sm:flex-row justify-center gap-4 px-4 sm:px-0 w-full">
+                        <Link to="/contact" className="w-full sm:w-auto">
+                            <Button
+                            size="lg"
+                            className="shadow-lg text-white hover:text-black dark:text-black hover:dark:text-white w-full sm:w-auto"
+                            >
+                            Request a Demo
+                            <ArrowRight className="ml-2 h-5 w-5" />
+                            </Button>
+                        </Link>
+
+                        <Link to="/contact" className="w-full sm:w-auto">
+                            <Button
+                            size="lg"
+                            variant="outline"
+                            className="w-full sm:w-auto"
+                            >
+                            Talk to Our Experts
+                            </Button>
+                        </Link>
                         </div>
                     </div>
-                </div>
-            </section>
+                    </div>
+                </section>
 
             <Footer />
         </div>
