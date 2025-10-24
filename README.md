@@ -1,18 +1,17 @@
-# Welcome to your Lovable project
+Welcome to Your Project 🚀
+Project Info
 
-## Project info
+URL: https://zentraa.com
 
-**URL**: https://lovable.dev/projects/b94f1b52-2800-460c-848f-0990b92b9989
+Description: This is a modern web application built with React, TypeScript, Vite, Tailwind CSS, and shadcn-ui — designed for performance, scalability, and an exceptional user experience.
 
-## How can I edit this code?
+How to Edit This Code
 
-There are several ways of editing your application.
+You can edit this project using any preferred development environment. Below are a few recommended methods:
 
-**Use Lovable**
+🧠 Option 1: Use Your Local IDE
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b94f1b52-2800-460c-848f-0990b92b9989) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+If you want to work locally on your own computer, follow these steps:
 
 **Use your preferred IDE**
 
@@ -36,38 +35,76 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+🛠 Option 2: Edit Directly on GitHub
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Go to the desired file in your GitHub repository.
 
-**Use GitHub Codespaces**
+Click the ✏️ Edit (pencil) icon on the file view.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Make your changes and click Commit changes.
 
-## What technologies are used for this project?
+Your updates will instantly reflect in your main branch after the commit.
 
-This project is built with:
+💻 Option 3: Use GitHub Codespaces (Cloud IDE)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+If you prefer cloud-based editing:
 
-## How can I deploy this project?
+Open your GitHub repository.
 
-Simply open [Lovable](https://lovable.dev/projects/b94f1b52-2800-460c-848f-0990b92b9989) and click on Share -> Publish.
+Click the green Code button → select Codespaces.
 
-## Can I connect a custom domain to my Lovable project?
+Create a new Codespace.
 
-Yes, you can!
+Once loaded, edit and run your app in a full development environment right in your browser.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+🧩 Tech Stack
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is built using:
+
+⚡ Vite — Lightning-fast build tool
+
+⚛️ React — Frontend library for building user interfaces
+
+🧠 TypeScript — Type-safe JavaScript for scalable code
+
+🎨 Tailwind CSS — Utility-first CSS framework
+
+🪄 shadcn-ui — Beautiful, accessible UI components
+
+🚀 Deployment
+
+To deploy your project, you can use any of the following platforms:
+
+Vercel — Quickest for React + Vite projects
+
+Netlify — Easy setup with CI/CD
+
+GitHub Pages — Simple static hosting
+
+GoDaddy / Custom Server — Manual or FTP deployment
+
+Example (Vercel Deployment)
+
+Go to https://vercel.com
+
+Import your GitHub repository
+
+Configure build settings:
+
+Build Command: npm run build
+
+Output Directory: dist
+
+Click Deploy
+
+🌐 Custom Domain Setup
+
+If you own a domain (e.g., from GoDaddy, Namecheap, or others):
+
+Go to your domain provider’s DNS settings.
+
+Add a CNAME record pointing to your hosting platform (like Vercel, Netlify, or your server IP).
+
+Wait for DNS propagation (usually 15–30 minutes).
+
+Your project will then be live at zentraa.com 🎉
